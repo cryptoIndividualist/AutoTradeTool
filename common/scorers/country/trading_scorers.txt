@@ -1,0 +1,468 @@
+best_trader_oil_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@oil
+			}
+			modifier = {
+				check_variable = {resource_exported@oil < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}
+best_trader_aluminium_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@aluminium
+			}
+			modifier = {
+				check_variable = {resource_exported@aluminium < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}
+best_trader_rubber_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@rubber
+			}
+			modifier = {
+				check_variable = {resource_exported@rubber < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}
+best_trader_tungsten_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@tungsten
+			}
+			modifier = {
+				check_variable = {resource_exported@tungsten < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}
+best_trader_steel_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@steel
+			}
+			modifier = {
+				check_variable = {resource_exported@steel < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}
+best_trader_chromium_scorer = {
+	targets = {
+		# describe the target to consider
+		targets_dynamic = no
+		target_non_existing = no
+		#target_array = global.majors
+		target_array = global.countries
+		# MTTH like score description
+		# THIS is a target
+		# FROM is the initiator
+    	score = {
+			base = 0
+			modifier = {
+				add = resource_exported@chromium
+			}
+			modifier = {
+				check_variable = {resource_exported@chromium < 8}
+				factor = 0
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < -25
+                }
+				factor = 0.1
+			}
+			modifier = {
+				has_opinion = {
+                    target = FROM
+                    value < 0
+                }
+				factor = 0.5
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 25
+                }
+				factor = 2
+			}
+            modifier = {
+				has_opinion = {
+                    target = FROM
+                    value > 50
+                }
+				factor = 2
+			}
+        	modifier = {
+				is_subject_of = FROM
+				factor = 40
+			}
+            modifier = {
+				is_puppet_of = FROM
+				factor = 80
+			}
+			modifier = {
+				check_variable = {FROM = THIS}
+				factor = 0
+			}
+			modifier = {
+				has_war_with = FROM
+				factor = 0
+			}
+			modifier = {
+				is_ally_with = FROM
+				factor = 10
+			}
+			modifier = {
+				has_non_aggression_pact_with = FROM
+				factor = 5
+			}
+			modifier = {
+				is_neighbor_of = FROM
+				add = 20
+			}
+    	}
+	}
+}

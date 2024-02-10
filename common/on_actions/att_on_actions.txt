@@ -1,0 +1,873 @@
+on_actions = {
+    on_daily = {
+        effect = {
+            every_country = {
+				if = {
+					limit = {
+                        is_ai = no
+                    }
+
+	            	if = {
+                    	limit = {
+							check_variable = {resource@rubber < 0}
+                    	}
+                    	#set_variable = {import_needed = resource_imported@rubber}
+						#add_to_variable = {import_needed = 8}
+
+						set_variable = {import_needed = -1}
+						multiply_variable = {import_needed = resource@rubber}
+						add_to_variable = {import_needed = resource_imported@rubber}
+                    	
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_rubber_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_variable = {export_max = resource_exported@rubber}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@rubber}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = rubber
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+                	}
+
+	            	if = {
+                    	limit = {
+                        	check_variable = {resource@aluminium < 0}
+                    	}
+                    	set_temp_variable = {import_needed = -1}
+						multiply_temp_variable = {import_needed = resource@aluminium}
+						add_to_temp_variable = {import_needed = resource_imported@aluminium}
+
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_aluminium_scorer  
+							array  = tags
+							scores = resources
+						}
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_temp_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_temp_variable = {export_max = resource_exported@aluminium}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@aluminium}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = aluminium
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_temp_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+					}
+
+					if = {
+                    	limit = {
+                        	check_variable = {resource@tungsten < 0}
+                    	}
+                    	set_temp_variable = {import_needed = resource_imported@tungsten}
+                    	add_to_temp_variable = {import_needed = 8}
+
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_tungsten_scorer  
+							array  = tags
+							scores = resources
+						}
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_temp_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_temp_variable = {export_max = resource_exported@tungsten}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@tungsten}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = tungsten
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_temp_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+					}
+
+					if = {
+                    	limit = {
+                        	check_variable = {resource@steel < 0}
+                    	}
+                    	set_temp_variable = {import_needed = resource_imported@steel}
+                    	add_to_temp_variable = {import_needed = 8}
+
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_steel_scorer  
+							array  = tags
+							scores = resources
+						}
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_temp_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_temp_variable = {export_max = resource_exported@steel}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@steel}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = steel
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_temp_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+					}
+
+					if = {
+                    	limit = {
+                        	check_variable = {resource@chromium < 0}
+                    	}
+                    	set_temp_variable = {import_needed = resource_imported@chromium}
+                    	add_to_temp_variable = {import_needed = 8}
+
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_chromium_scorer  
+							array  = tags
+							scores = resources
+						}
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_temp_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_temp_variable = {export_max = resource_exported@chromium}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@chromium}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = chromium
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_temp_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+					}
+
+					if = {
+                    	limit = {
+                        	check_variable = {fuel_k < 2}
+                    	}
+                    	set_temp_variable = {import_needed = resource_imported@oil}
+                    	add_to_temp_variable = {import_needed = 8}
+
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_oil_scorer  
+							array  = tags
+							scores = resources
+						}
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							if = {
+        						limit = {
+									NOT = {
+										check_variable = {trader = FROM}
+									}
+        						}
+								if = {
+									limit = {
+										check_variable = {import_needed < 1}
+									}
+									set_temp_variable = {break = 1}
+								}
+								else = {
+									set_temp_variable = {export_max = 0}
+
+									var:trader = {
+										add_to_temp_variable = {export_max = resource_exported@oil}
+									}
+
+									set_temp_variable = {current_import_amount = resource_imported@oil}
+
+									if = {
+										limit = {
+											check_variable = {export_max < import_needed}
+										}
+										set_temp_variable = {traded_resources = export_max}
+									}
+									else = {
+										set_temp_variable = {traded_resources = import_needed}
+									}
+
+									meta_effect = {
+										text = {
+											create_import = {
+												resource = oil
+												amount = [AMOUNT]
+												exporter = [EXPORTER]
+											}											
+										}
+										AMOUNT = "[?traded_resources]"
+										EXPORTER = "[?trader.GetTag]"
+									}
+
+									subtract_from_temp_variable = {import_needed = traded_resources}
+								}
+    						}
+						}
+					}
+				}
+            }
+        }
+    }
+
+	### Overtrade: correct trade if overbought on a weekly scale
+	on_weekly = {
+		effect = {
+			every_country = {
+				if = {
+					limit = {
+						is_ai = no
+					}
+					if = {
+						limit = {
+							resource@rubber > 8
+							resource_imported@rubber > 0
+						}
+						### RUBBER
+						set_variable = {overtrade_value = 8}
+						every_subject_country = {
+							if = {
+								limit = {
+									has_autonomy_state = autonomy_dominion
+									check_variable = {overtrade_value < 10}
+									check_variable = {overtrade_value < resource_exported@rubber}
+								}
+								if = {
+									limit = {
+										check_variable = {overtrade_value < resource_exported@rubber}
+										check_variable = {resource_exported@rubber < 10}
+									}
+									set_variable = {overtrade_value = resource_exported@rubber}
+								}
+								else = {
+									set_variable = {overtrade_value = 10}
+								}
+							}
+							if = {
+								limit = {
+									has_autonomy_state = autonomy_colony
+									check_variable = {overtrade_value < 16}
+									check_variable = {overtrade_value < resource_exported@rubber}
+								}
+								if = {
+									limit = {
+										check_variable = {overtrade_value < resource_exported@rubber}
+										check_variable = {resource_exported@rubber < 16}
+									}
+									set_variable = {overtrade_value = resource_exported@rubber}
+								}
+								else = {
+									set_variable = {overtrade_value = 16}
+								}
+							}
+							if = {
+								limit = {
+									has_autonomy_state = autonomy_puppet
+									check_variable = {overtrade_value < 80}
+									check_variable = {overtrade_value < resource_exported@rubber}
+								}
+								if = {
+									limit = {
+										check_variable = {overtrade_value < resource_exported@rubber}
+										check_variable = {resource_exported@rubber < 80}
+									}
+									set_variable = {overtrade_value = resource_exported@rubber}
+								}
+								else = {
+									set_variable = {overtrade_value = 80}
+								}
+							}
+						}
+						if = {
+							limit = {
+								check_variable = {overtrade_value <= resource@rubber}
+								check_variable = {resource_imported@rubber > 0}
+							}
+
+							get_sorted_scored_countries_temp = {
+								scorer = best_trader_rubber_scorer  
+								array  = tags
+								scores = resources
+							}
+
+							for_each_loop = {
+								array = tags
+								value = trader
+								break = break
+								meta_effect = {
+									text = {
+										create_import = {
+											resource = rubber
+											amount = 0
+											exporter = [EXPORTER]
+										}											
+									}
+									EXPORTER = "[?trader.GetTag]"
+								}
+							}				
+						}
+					}
+					
+
+					### ALUMINIUM
+					set_temp_variable = {overtrade_value = 8}
+					every_subject_country = {
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_dominion
+								check_variable = {overtrade_value < 10}
+								check_variable = {overtrade_value < resource_exported@aluminium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@aluminium}
+									check_variable = {resource_exported@aluminium < 10}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@aluminium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 10}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_colony
+								check_variable = {overtrade_value < 16}
+								check_variable = {overtrade_value < resource_exported@aluminium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@aluminium}
+									check_variable = {resource_exported@aluminium < 16}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@aluminium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 16}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_puppet
+								check_variable = {overtrade_value < 80}
+								check_variable = {overtrade_value < resource_exported@aluminium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@aluminium}
+									check_variable = {resource_exported@aluminium < 80}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@aluminium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 80}
+							}
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {resource@aluminium >= overtrade_value}
+							check_variable = {resource_imported@aluminium > 0}
+						}
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_aluminium_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							meta_effect = {
+								text = {
+									create_import = {
+										resource = aluminium
+										amount = 0
+										exporter = [EXPORTER]
+									}											
+								}
+								EXPORTER = "[?trader.GetTag]"
+							}
+						}				
+					}
+
+					### TUNGSTEN
+					set_temp_variable = {overtrade_value = 8}
+					every_subject_country = {
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_dominion
+								check_variable = {overtrade_value < 10}
+								check_variable = {overtrade_value < resource_exported@tungsten}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@tungsten}
+									check_variable = {resource_exported@tungsten < 10}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@tungsten}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 10}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_colony
+								check_variable = {overtrade_value < 16}
+								check_variable = {overtrade_value < resource_exported@tungsten}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@tungsten}
+									check_variable = {resource_exported@tungsten < 16}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@tungsten}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 16}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_puppet
+								check_variable = {overtrade_value < 80}
+								check_variable = {overtrade_value < resource_exported@tungsten}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@tungsten}
+									check_variable = {resource_exported@tungsten < 80}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@tungsten}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 80}
+							}
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {resource@tungsten >= overtrade_value}
+							check_variable = {resource_imported@tungsten > 0}
+						}
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_tungsten_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							meta_effect = {
+								text = {
+									create_import = {
+										resource = tungsten
+										amount = 0
+										exporter = [EXPORTER]
+									}											
+								}
+								EXPORTER = "[?trader.GetTag]"
+							}
+						}					
+					}
+
+					### STEEL
+					set_temp_variable = {overtrade_value = 8}
+					every_subject_country = {
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_dominion
+								check_variable = {overtrade_value < 10}
+								check_variable = {overtrade_value < resource_exported@steel}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@steel}
+									check_variable = {resource_exported@steel < 10}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@steel}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 10}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_colony
+								check_variable = {overtrade_value < 16}
+								check_variable = {overtrade_value < resource_exported@steel}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@steel}
+									check_variable = {resource_exported@steel < 16}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@steel}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 16}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_puppet
+								check_variable = {overtrade_value < 80}
+								check_variable = {overtrade_value < resource_exported@steel}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@steel}
+									check_variable = {resource_exported@steel < 80}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@steel}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 80}
+							}
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {resource@steel >= overtrade_value}
+							check_variable = {resource_imported@steel > 0}
+						}
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_steel_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							meta_effect = {
+								text = {
+									create_import = {
+										resource = steel
+										amount = 0
+										exporter = [EXPORTER]
+									}											
+								}
+								EXPORTER = "[?trader.GetTag]"
+							}
+						}				
+					}
+
+					### CHROMIUM
+					set_temp_variable = {overtrade_value = 8}
+					every_subject_country = {
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_dominion
+								check_variable = {overtrade_value < 10}
+								check_variable = {overtrade_value < resource_exported@chromium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@chromium}
+									check_variable = {resource_exported@chromium < 10}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@chromium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 10}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_colony
+								check_variable = {overtrade_value < 16}
+								check_variable = {overtrade_value < resource_exported@chromium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@chromium}
+									check_variable = {resource_exported@chromium < 16}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@chromium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 16}
+							}
+						}
+						if = {
+							limit = {
+								has_autonomy_state = autonomy_puppet
+								check_variable = {overtrade_value < 80}
+								check_variable = {overtrade_value < resource_exported@chromium}
+							}
+							if = {
+								limit = {
+									check_variable = {overtrade_value < resource_exported@chromium}
+									check_variable = {resource_exported@chromium < 80}
+								}
+								set_temp_variable = {overtrade_value = resource_exported@chromium}
+							}
+							else = {
+								set_temp_variable = {overtrade_value = 80}
+							}
+						}
+					}
+					if = {
+						limit = {
+							check_variable = {resource@chromium >= overtrade_value}
+							check_variable = {resource_imported@chromium > 0}
+						}
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_chromium_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							meta_effect = {
+								text = {
+									create_import = {
+										resource = chromium
+										amount = 0
+										exporter = [EXPORTER]
+									}											
+								}
+								EXPORTER = "[?trader.GetTag]"
+							}
+						}				
+					}
+
+					### OIL
+					if = {
+						limit = {
+							check_variable = {fuel_k >= 6}
+							check_variable = {resource_imported@oil > 0}
+						}
+						get_sorted_scored_countries_temp = {
+							scorer = best_trader_oil_scorer  
+							array  = tags
+							scores = resources
+						}
+
+						for_each_loop = {
+							array = tags
+							value = trader
+							break = break
+							meta_effect = {
+								text = {
+									create_import = {
+										resource = oil
+										amount = 0
+										exporter = [EXPORTER]
+									}											
+								}
+								EXPORTER = "[?trader.GetTag]"
+							}
+						}				
+					}
+				}
+			}
+		}
+	}
+}
