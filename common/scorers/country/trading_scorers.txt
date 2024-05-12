@@ -43,7 +43,7 @@ best_trader_oil_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
@@ -121,7 +121,7 @@ best_trader_aluminium_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
@@ -176,7 +176,7 @@ best_trader_rubber_scorer = {
 			modifier = {
 				has_opinion = {
                     target = FROM
-                    value < -25
+                    value < -50
                 }
 				factor = 0.1
 			}
@@ -199,7 +199,7 @@ best_trader_rubber_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
@@ -277,7 +277,7 @@ best_trader_tungsten_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
@@ -355,7 +355,7 @@ best_trader_steel_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
@@ -433,7 +433,7 @@ best_trader_chromium_scorer = {
                     target = FROM
                     value > 50
                 }
-				factor = 2
+				factor = 4
 			}
         	modifier = {
 				is_subject_of = FROM
